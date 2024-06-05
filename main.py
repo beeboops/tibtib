@@ -2,6 +2,7 @@ from re import sub
 import discord
 from discord.ext import commands
 import os
+from keep_alive import keep_alive
 
 bot = commands.Bot(command_prefix=':', intents=discord.Intents.all())
 
@@ -88,5 +89,5 @@ async def on_member_update(before, after):
                         await after.remove_roles(role)  # Remove the role from the member
 
 
-
+keep_alive()
 bot.run(os.getenv('token'))
